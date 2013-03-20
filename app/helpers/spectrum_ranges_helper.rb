@@ -1,0 +1,2 @@
+module SpectrumRangesHelper
+end

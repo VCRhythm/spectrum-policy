@@ -1,0 +1,9 @@
+<h1>Listing spectrum_ranges</h1>
+
+<% @spectrum_ranges.each do |spectrum_range| %>
+	<%= render spectrum_range %>
+<% end %>
+
+<br />
+
+<%= link_to 'New Spectrum range', new_spectrum_range_path %>

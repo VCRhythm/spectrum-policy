@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  low: 1
+  high: 1
+  issue_id: 1
+  name: MyString
+
+two:
+  low: 1
+  high: 1
+  issue_id: 1
+  name: MyString

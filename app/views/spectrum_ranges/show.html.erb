@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Low:</b>
+  <%= @spectrum_range.low %>
+</p>
+
+<p>
+  <b>High:</b>
+  <%= @spectrum_range.high %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%= @spectrum_range.issue_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @spectrum_range.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_spectrum_range_path(@spectrum_range) %> |
+<%= link_to 'Back', spectrum_ranges_path %>

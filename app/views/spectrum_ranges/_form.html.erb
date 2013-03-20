@@ -1,0 +1,33 @@
+<%= form_for(@spectrum_range) do |f| %>
+  <% if @spectrum_range.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spectrum_range.errors.count, "error") %> prohibited this spectrum_range from being saved:</h2>
+
+      <ul>
+      <% @spectrum_range.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :low %><br />
+    <%= f.number_field :low %>
+  </div>
+  <div class="field">
+    <%= f.label :high %><br />
+    <%= f.number_field :high %>
+  </div>
+  <div class="field">
+    <%= f.label :issue_id %><br />
+    <%= f.number_field :issue_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

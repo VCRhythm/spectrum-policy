@@ -14,7 +14,7 @@
 	</thead>
 	<tbody>
 		<% @issues.each do |issue| %>
-			<tr class="range" data-id="<%= issue.id %>" data-name="<%= issue.name %>" data-description="<%= issue.description %>" data-agencies="<%= issue_agencies_path(issue.id, format: :json) %>">
+			<tr class="range" data-agencies="<%= issue_agency_actions_path(issue.id, format: :json) %>" data-id="<%= issue.id %>" data-name="<%= issue.name %>" data-description="<%= issue.description %>" data-agencies="<%= issue_agencies_path(issue.id, format: :json) %>">
   	  <td><%= issue.name %></td>
     	<td><%= issue.description %></td>
 			<td class="agencies"><% issue.agencies.each do |agency| %><%= agency.name %><% end %></td>

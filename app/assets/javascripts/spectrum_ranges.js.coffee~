@@ -4,17 +4,18 @@
 
 $ ->
 	populate_table = (id) ->
-		$.ajax(url: "/issues").done (html) ->
+		$.ajax(url: "/issues/"+id).done (html) ->
 			$(html).find(".agencies").each ->
-				tableItem = $('<tr><td>' + $(this).text() + '</td></tr>')
-				$('#information').children('.table').children('.table-body').html tableItem
+				tableItem = $('<p>' + $(this).text() + '</p>')
+				$('#information').children().children('.info-description').append tableItem
 
 	show_information = (e) ->
-		name = e.data('name')
-		description = e.data('description')
+		name = e.data 'name'
+		description = e.data 'description'
 		$('#information').children().children('.info-title').html name
 		$('#information').children().children('.info-description').html description
-		populate_table(e.data('id'))
+		path = e.data 'agencies'
+		$('#information').children().children('.info-agencies').load path
 
 	$('.range').click ->
-		show_information($(this))
+		show_information $(this)

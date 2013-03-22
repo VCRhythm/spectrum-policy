@@ -1,13 +1,11 @@
 Spectrum::Application.routes.draw do
   
-  resources :agencies
-
-
   resources :spectrum_ranges
+	resources :agencies
 
-
-  resources :issues
-
+  resources :issues do
+		resources :agencies
+	end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,7 +1,19 @@
-<h1>Listing spectrum_ranges</h1>
 <div id="information">
-	<h2 class="info-title">Test</h2>
-	<p class="info-description"></p>
+	<dl>
+		<dt class="info-title">Instructions</dt>
+		<dd class="info-description">Click a spectrum band for more information.</dd>
+	</dl>		
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Agencies</th>
+				<th>Actions</th>	
+			</tr>
+		</thead>
+		<tbody class="table-body">
+		</tbody>
+	</table>
+
 </div>
 <% @spectrum_ranges.each do |spectrum_range| %>
 	<%= render spectrum_range %>

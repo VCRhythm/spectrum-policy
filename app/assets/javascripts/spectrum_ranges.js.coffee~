@@ -4,9 +4,7 @@
 jQuery ->
 	show_information = (e) ->
 		name = e.data('name')
-		description = e.data('description')
 		$('#information').children('.info-title').html(name)
-		$('#information').children('.info-description').html(description)
 
 	$('.range').on 'click', (event) =>
 		e = $(event.target)

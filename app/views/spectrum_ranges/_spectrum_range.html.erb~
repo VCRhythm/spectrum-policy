@@ -1,5 +1,5 @@
-<%= @spectrum_range.low %>
-<div width=<% @spectrum_range.width/@range_width %>> 
-	<%= @spectrum_range.name %>
+<%= spectrum_range.low %>
+<div class="range" width="<% spectrum_range.width/@range_width%>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>"> 
+	<%= spectrum_range.name %>
 </div>
-<%= @spectrum_range.high %>
+<%= spectrum_range.high %>

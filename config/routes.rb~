@@ -1,5 +1,4 @@
 Spectrum::Application.routes.draw do
-  
   resources :spectrum_ranges
 
 

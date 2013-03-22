@@ -1,5 +1,5 @@
 <%= spectrum_range.low %>
-<div class="range" width="<% spectrum_range.width/@range_width%>" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agencies_path(spectrum_range.issue.id, format: :json) %>"> 
+<div class="range" width="<% spectrum_range.width/@range_width%>" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>"> 
 	<%= spectrum_range.name %>
 </div>
 <%= spectrum_range.high %>

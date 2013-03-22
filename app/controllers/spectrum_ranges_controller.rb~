@@ -4,7 +4,8 @@ class SpectrumRangesController < ApplicationController
   def index
     @spectrum_ranges = SpectrumRange.includes(:issue).all
 		@issues= Issue.all
-    respond_to do |format|
+    @range_width = @spectrum_ranges.max.high - @spectrum_ranges.min.low
+		respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @spectrum_ranges }
     end

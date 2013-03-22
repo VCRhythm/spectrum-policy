@@ -12,5 +12,6 @@
 class Issue < ActiveRecord::Base
   attr_accessible :description, :name
 	has_many :spectrum_ranges
-	has_and_belongs_to_many :agencies
+	has_many :agency_actions
+	has_many :agencies, through: :agency_actions
 end

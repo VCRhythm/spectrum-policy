@@ -1,5 +1,6 @@
 Spectrum::Application.routes.draw do
   
+	root to: 'spectrum_ranges#index' 
   resources :spectrum_ranges
 	resources :agencies
 

@@ -1,10 +1,12 @@
 Spectrum::Application.routes.draw do
   
+	root to: 'spectrum_ranges#index' 
   resources :spectrum_ranges
 	resources :agencies
 
   resources :issues do
 		resources :agencies
+		resources :agency_actions
 	end
 
   # The priority is based upon order of creation:

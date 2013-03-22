@@ -3,7 +3,7 @@
 		<dt class="info-title">Instructions</dt>
 		<dd class="info-description">Click a spectrum band for more information.</dd>
 		<dd class="info-agencies"></dd>
-	</dl>		
+	</dl>
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -14,7 +14,7 @@
 	</thead>
 	<tbody>
 		<% @issues.each do |issue| %>
-	  <tr>
+			<tr class="range" data-id="<%= issue.id %>" data-name="<%= issue.name %>" data-description="<%= issue.description %>" data-agencies="<%= issue_agencies_path(issue.id, format: :json) %>">
   	  <td><%= issue.name %></td>
     	<td><%= issue.description %></td>
 			<td class="agencies"><% issue.agencies.each do |agency| %><%= agency.name %><% end %></td>

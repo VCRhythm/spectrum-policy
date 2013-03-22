@@ -3,11 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	populate_table = (id) ->
-		$.ajax(url: "/issues/"+id).done (html) ->
-			$(html).find(".agencies").each ->
-				tableItem = $('<p>' + $(this).text() + '</p>')
-				$('#information').children().children('.info-description').append tableItem
+#	populate_table = (id) ->
+#		$.ajax(url: "/issues/"+id).done (html) ->
+#			$(html).find(".agencies").each ->
+#				tableItem = $('<p>' + $(this).text() + '</p>')
+#				$('#information').children().children('.info-description').append tableItem
 
 	show_information = (e) ->
 		name = e.data 'name'
@@ -18,7 +18,9 @@ $ ->
 		$.getJSON(path).done (data) ->
 			$('#information').children().children('.info-agencies').html ""
 			$.each data, (key, val) -> 
-				$('#information').children().children('.info-agencies').append val.name 
+				actionItem = val.agency.name + ': ' + val.description
+				actionItem += " <a href='" + val.link + "'>[link]</a>" if val.link
+				$('#information').children().children('.info-agencies').append actionItem
 
 	$('.range').click ->
 		show_information $(this)

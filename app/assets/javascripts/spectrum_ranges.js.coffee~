@@ -15,7 +15,10 @@ $ ->
 		$('#information').children().children('.info-title').html name
 		$('#information').children().children('.info-description').html description
 		path = e.data 'agencies'
-		$('#information').children().children('.info-agencies').load path
+		$.getJSON(path).done (data) ->
+			$('#information').children().children('.info-agencies').html ""
+			$.each data, (key, val) -> 
+				$('#information').children().children('.info-agencies').append val.name 
 
 	$('.range').click ->
 		show_information $(this)

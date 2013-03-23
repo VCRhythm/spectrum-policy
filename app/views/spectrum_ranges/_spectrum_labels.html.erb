@@ -1,0 +1,4 @@
+<% @spectrum_labels[@spectrum_counter]=24 %>
+<% @spectrum_labels.each {|key, value| %>
+	<div class="band-label" style="width:<%=value%>px;">[<%=key%>]</div>
+<% } %>

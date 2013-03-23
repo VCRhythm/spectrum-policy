@@ -4,14 +4,47 @@
 
 @import "bootstrap";
 
-#information .table {
-}
-
 /* universal */
 
 html {
 	overflow-y: scroll;
 }
 
-body {
+
+/* spectrum */
+
+#spectrum-holder {
+	border-right: 5px black solid;
+	color:white;
+	bottom:200px;
+}
+
+div.range {
+	text-align:center;
+	color:white;
+	border-top: 5px black solid;
+	border-bottom: 5px black solid;
+	display:table-cell;
+	font-size:1em;
+	height:50px;
+	border-left: 2px black solid;
+	border-right: 2px black solid;
+}
+
+div.empty-range {
+	color:white;
+	border-top: 5px black solid;
+	border-bottom: 5px black solid;
+	border-left: 2px black solid;
+	border-right: 2px black solid;
+	display:table-cell;
+	font-size:1em;
+	height:50px;
+}
+
+div.band-label {
+	display:table-cell;
+	color: black;
+	position:relative;
+	left:-16px;
 }

@@ -1,5 +1,13 @@
-<%= spectrum_range.low %>
-<div class="range" width="<% spectrum_range.width/@range_width%>" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>"> 
+<% if @spectrum_counter != spectrum_range.low %>
+	<% bandWidth=(spectrum_range.low-@spectrum_counter).ceil %>
+	<div class="empty-range" style="background-color:gray; width:<%= bandWidth %>px;"></div>
+	<% @spectrum_labels[@spectrum_counter] = bandWidth %>
+	<% @spectrum_counter = spectrum_range.low %>
+<% end %>
+
+<% bandWidth = spectrum_range.width/@range_width.to_f * 950 %>
+<div class="range" style="background-color:blue; width:<%= bandWidth %>px;" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>">
 	<%= spectrum_range.name %>
 </div>
-<%= spectrum_range.high %>
+<% @spectrum_labels[@spectrum_counter] = bandWidth %>
+<% @spectrum_counter = spectrum_range.high %>

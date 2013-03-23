@@ -23,11 +23,14 @@
 	<% end %>
 </table>
 </div>
-
+<div style="display:table-row;">
 <% @spectrum_ranges.each do |spectrum_range| %>
 	<%= render spectrum_range %>
 <% end %>
-
+</div>
+<div style="display:table-row;">
+	<%= render 'spectrum_labels' %>
+</div>
 <br />
 
 <%= link_to 'New Spectrum range', new_spectrum_range_path %>

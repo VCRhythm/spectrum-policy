@@ -6,8 +6,8 @@
 <% end %>
 
 <% bandWidth = spectrum_range.width/@range_width.to_f * 950 %>
-<div class="range" style="background-color:blue; width:<%= bandWidth %>px;" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>">
+<div class="range" style="background-color:'<%= spectrum_range.issue.color %>'; width:<%= bandWidth %>px;" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>">
 	<%= spectrum_range.name %>
 </div>
-<% @spectrum_labels[@spectrum_counter] = bandWidth %>
+<% @spectrum_labels[@spectrum_counter] = bandWidth+16 %>
 <% @spectrum_counter = spectrum_range.high %>

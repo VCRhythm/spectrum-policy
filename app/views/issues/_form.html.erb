@@ -28,14 +28,11 @@
 		<%= text_field_tag :range_name %>
 	</div>
 	<div class="field">
-		<%= label_tag :range_low, "Lower End of Spectrum Band" %>
-		<%= number_field_tag :range_low %>
+		<%= label_tag :spectrum_range, "Spectrum Band:" %>
+		<%= text_field_tag :range_low, nil, id: "spectrum-low" %> MHz - <%= text_field_tag :range_high, nil, id: "spectrum-high" %> MHz
+		<div id="spectrum-range"></div>
 	</div>
-	<div class="field">
-		<%= label_tag :range_high, "Upper End of Spectrum Band" %>
-		<%= number_field_tag :range_high %>
-	</div>
-<div class="actions">
+	<div class="actions">
    <%= submit_tag "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -3,8 +3,8 @@ class SpectrumRangesController < ApplicationController
   # GET /spectrum_ranges.json
   def index
     @spectrum_ranges = SpectrumRange.includes(:issue).all
-		@spectrum_counter = @spectrum_ranges.min.low
-		@range_width = @spectrum_ranges.max.high - @spectrum_ranges.min.low
+		@spectrum_counter = SpectrumRange.minimum('low')
+		@range_width = SpectrumRange.maximum('high') - SpectrumRange.minimum('low')
 		@spectrum_labels = Hash.new
 		
 		@issues= Issue.all

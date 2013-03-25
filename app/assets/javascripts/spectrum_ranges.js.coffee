@@ -8,7 +8,6 @@ $ ->
 #			$(html).find(".agencies").each ->
 #				tableItem = $('<p>' + $(this).text() + '</p>')
 #				$('#information').children().children('.info-description').append tableItem
-
 	show_information = (e) ->
 		name = e.data 'name'
 		description = e.data 'description'

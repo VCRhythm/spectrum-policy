@@ -10,7 +10,7 @@
 #
 
 class Issue < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :description, :name, :color
 	has_many :spectrum_ranges
 	has_many :agency_actions
 	has_many :agencies, through: :agency_actions

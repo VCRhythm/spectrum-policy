@@ -41,6 +41,9 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(params[:issue])
+		@spectrum_range = SpectrumRange.new(name: params[:range_name], low: params[:range_low], high: params[:range_high])
+
+		@issue.spectrum_ranges << @spectrum_range
 
     respond_to do |format|
       if @issue.save

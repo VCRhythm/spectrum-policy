@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +12,7 @@ gem 'jquery-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+	gem 'bootstrap-colorpicker-rails', git: 'git://github.com/VCRhythm/bootstrap-colorpicker-rails.git'
   gem 'sass-rails',   '~> 3.2.3'
 	gem 'bootstrap-sass'
   gem 'coffee-rails', '~> 3.2.1'

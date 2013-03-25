@@ -31,4 +31,4 @@
 </div>
 <br />
 
-<%= link_to 'New Spectrum range', new_spectrum_range_path %>
+<%= link_to 'Add New Area of Interest', new_issue_path %>

@@ -4,9 +4,10 @@ Spectrum::Application.routes.draw do
   resources :spectrum_ranges
 	resources :agencies
 
-  resources :issues do
-		resources :agencies
+	resources :agency_actions
+	resources :issues do
 		resources :agency_actions
+		resources :agencies
 	end
 
   # The priority is based upon order of creation:

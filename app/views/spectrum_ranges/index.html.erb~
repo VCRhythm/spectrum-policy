@@ -4,6 +4,7 @@
 		<dd class="info-description">Click a spectrum band for more information.</dd>
 		<dd class="info-agencies"></dd>
 	</dl>
+	<%= link_to 'Add A New Agency Action', new_issue_agency_action_path(Issue.find(1), AgencyAction.new) %>
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -17,14 +18,14 @@
   	  <td><%= issue.name %></td>
     	<td><%= issue.description %></td>
 	  </tr>
+		<% end %>
 	</tbody>
-	<% end %>
 </table>
 </div>
 <div style="display:table-row;">
-<% @spectrum_ranges.each do |spectrum_range| %>
-	<%= render spectrum_range %>
-<% end %>
+	<% @spectrum_ranges.each do |spectrum_range| %>
+		<%= render spectrum_range %>
+	<% end %>
 </div>
 <div style="display:table-row;">
 	<%= render 'spectrum_labels' %>

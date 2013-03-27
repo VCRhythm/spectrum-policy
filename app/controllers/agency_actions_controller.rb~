@@ -12,6 +12,7 @@ class AgencyActionsController < ApplicationController
   end
 	def new
 		@issue = Issue.find(params[:issue_id])
+		@agencies = Agency.all
 		@agency_action = @issue.agency_actions.new
 		respond_to do |format|
       format.html # new.html.erb

@@ -13,7 +13,6 @@ gem 'jquery-ui-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-	gem 'bootstrap-colorpicker-rails', git: 'git://github.com/VCRhythm/bootstrap-colorpicker-rails.git'
   gem 'sass-rails',   '~> 3.2.3'
 	gem 'bootstrap-sass'
   gem 'coffee-rails', '~> 3.2.1'

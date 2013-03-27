@@ -18,6 +18,10 @@ html {
 	bottom:200px;
 }
 
+#add-action {
+	display:none;
+}
+
 div.range {
 	text-align:center;
 	color:white;

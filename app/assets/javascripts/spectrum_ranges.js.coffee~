@@ -8,12 +8,14 @@ $ ->
 #			$(html).find(".agencies").each ->
 #				tableItem = $('<p>' + $(this).text() + '</p>')
 #				$('#information').children().children('.info-description').append tableItem
-
 	show_information = (e) ->
 		name = e.data 'name'
 		description = e.data 'description'
+		link_path = "<a href='/issues/" + e.data('id') + "/agency_actions/new'>Add a New Agency Action</a>" 
 		$('#information').children().children('.info-title').html name
 		$('#information').children().children('.info-description').html description
+		$('#add-action').html(link_path)
+		$('#add-action').show()
 		path = e.data 'agencies'
 		$.getJSON(path).done (data) ->
 			$('#information').children().children('.info-agencies').html ""

@@ -1,4 +1,4 @@
-<%= form_for [@issue, @agency_action] do |f| %>
+<%= form_for [@issue, @agency_action], html: {class: "form-horizontal"} do |f| %>
   <% if @agency_action.errors.any? %>
     <div id="error_explanation>
       <h2><%= pluralize(@agency_action.errors.count, "error") %> prohibited this agency action from being saved:</h2>
@@ -10,24 +10,32 @@
     </div>
   <% end %>
 
-	<div class="field">
-		<%= label_tag :agency_id %>
-		<%= f.select :agency_id, options_from_collection_for_select(@agencies, :id, :name) %>
+	<div class="control-group">
+		<%= f.label :agency_id, class: "control-label" %>
+		<div class="controls">
+			<%= f.select :agency_id, options_from_collection_for_select(@agencies, :id, :name), class: "input-xlarge" %>
+		</div>
 	</div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-	<div class="field">
-		<%= f.label :action_date %>
-		<%= f.text_field :action_date %>
+	<div class="control-group">
+    <%= f.label :description, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_area :description, class: "input-xlarge" %>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :link %>
-		<%= f.text_field :link %>
+	<div class="control-group">
+		<%= f.label :action_date, class: "control-label" %>
+		<div class="controls">
+			<%= f.date_select :action_date %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= f.label :link, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :link, class: "control-label" %>
+		</div>
 	</div>
 	<%= hidden_field_tag :issue_id %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

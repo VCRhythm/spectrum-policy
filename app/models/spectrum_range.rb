@@ -12,6 +12,7 @@
 #
 
 class SpectrumRange < ActiveRecord::Base
+	before_save :default_values
   attr_accessible :high, :issue_id, :low, :name
   default_scope order('low ASC')
   
@@ -19,4 +20,7 @@ class SpectrumRange < ActiveRecord::Base
   def width
 		high - low
   end
+	def default_values
+		self.share ||= 1
+	end
 end

@@ -6,8 +6,14 @@
 <% end %>
 
 <% bandWidth = spectrum_range.width/@range_width.to_f * 950 %>
-<div class="range" style="background-color:<%= spectrum_range.issue.color %>; width:<%= bandWidth %>px;" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>">
+<% if spectrum_range.share > 1 %>
+	<%	bandLeft = -bandWidth %>
+<% else %>
+	<%	bandLeft = 0 %>
+<% end %>
+<% bandHeight = 100 / spectrum_range.share %>
+<div class="range" style="background-color:<%= spectrum_range.issue.color %>; left: <%=bandLeft%>px; width:<%= bandWidth %>px; height: <%= bandHeight %>px;" data-id="<%=spectrum_range.issue.id %>" data-name="<%=spectrum_range.issue.name %>" data-description="<%=spectrum_range.issue.description %>" data-agencies="<%= issue_agency_actions_path(spectrum_range.issue.id, format: :json) %>">
 	<%= spectrum_range.name %>
 </div>
-<% @spectrum_labels[@spectrum_counter] = bandWidth+16 %>
 <% @spectrum_counter = spectrum_range.high %>
+<% @spectrum_labels[@spectrum_counter] = bandWidth+16 %>

@@ -13,7 +13,7 @@
 
 class SpectrumRange < ActiveRecord::Base
 	before_save :default_values
-  attr_accessible :high, :issue_id, :low, :name
+  attr_accessible :high, :issue_id, :low, :name, :share
   default_scope order('low ASC')
   
  	belongs_to :issue	

@@ -5,8 +5,9 @@ class SpectrumRangesController < ApplicationController
     @spectrum_ranges = SpectrumRange.includes(:issue).all
 		@spectrum_counter = SpectrumRange.minimum('low')
 		@range_width = SpectrumRange.maximum('high') - SpectrumRange.minimum('low')
+		@multirow = 1
 		@spectrum_labels = Hash.new
-		
+		@spectrum_labels[@spectrum_counter] = 24
 		@issues= Issue.all
 		respond_to do |format|
       format.html # index.html.erb

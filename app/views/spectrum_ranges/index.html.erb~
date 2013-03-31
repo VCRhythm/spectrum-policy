@@ -23,14 +23,44 @@
 	</tbody>
 </table>
 </div>
-<div style="display:table-row;">
-	<% @spectrum_ranges.each do |spectrum_range| %>
-		<%= render spectrum_range %>
+<div class="row">
+<% @spectrum_ranges.each do |spectrum_range| %>
+	<% bandWidth = spectrum_range.width/@range_width.to_f * 900 %>
+	<% bandHeight = 100 / spectrum_range.share %>
+
+	<% if @spectrum_counter != spectrum_range.low && @multirow == 1 %>
+		<div class="range-block" style="width:<%= (spectrum_range.low-@spectrum_counter)/@range_width.to_f * 900 %>px;">
+			<%= render 'empty_range', bandWidth: bandWidth %>
+			<div class="range-label"><%=@spectrum_counter%></div>
+			<% @spectrum_counter = spectrum_range.low %>
+		</div>
 	<% end %>
-</div>
-<div style="display:table-row;">
-	<%= render 'spectrum_labels' %>
-</div>
+
+	<% if spectrum_range.share == 1 %>
+		<div class="range-block" style="width:<%= bandWidth %>px;">
+			<%= render spectrum_range, bandWidth: bandWidth, bandHeight: bandHeight %>
+			<div class="range-label"><%=spectrum_range.low%></div>
+		</div>
+		<% @multirow = 0 %>
+		<% @spectrum_counter = spectrum_range.high %>
+	<% elsif @multirow == 1 %>
+		<div class="range-block" style="width:<%= bandWidth %>px;">
+			<%= render spectrum_range, bandWidth: bandWidth, bandHeight: bandHeight %>
+		<% @multirow += 1 %>
+		<% @spectrum_counter = spectrum_range.high %>
+	<% else %>
+		<%= render spectrum_range, bandWidth: bandWidth, bandHeight: bandHeight %>
+		<% if @multirow == spectrum_range.share %> 
+			<% @multirow = 1 %>
+			<div class="range-label"><%= spectrum_range.low %></div>
+			</div>
+		<% else %>
+			<% @multirow += 1 %>
+		<% end %>
+	<% end %>
+<% end %>
+<div class="range-label" style="float:right;"><%= SpectrumRange.maximum("high") %></div>
 <br />
 
 <%= link_to 'Add New Area of Interest', new_issue_path %>
+</div>

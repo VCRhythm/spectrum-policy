@@ -1,0 +1,9 @@
+<%= label_tag :spectrum_range, "Spectrum Band:" %>
+<span class="input-append">
+	<%= text_field_tag :range_low, nil, id: "spectrum-low"+num %><span class="add-on">MHz</span>
+</span>	
+- 
+<span class="input-append">
+	<%= text_field_tag :range_high, nil, id: "spectrum-high"+num %><span class="add-on">MHz</span>
+</span>
+<div class="spectrum-range" id="spectrum_range<%= num %>" data-num="<%= num %>"></div>

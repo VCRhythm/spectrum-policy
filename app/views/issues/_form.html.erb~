@@ -28,17 +28,12 @@
 		<%= f.text_field :color %>
 	</div>	
 	<div class="field">
-		<%= label_tag :spectrum_range, "Spectrum Band:" %>
-		<span class="input-append">
-			<%= text_field_tag :range_low, nil, id: "spectrum-low" %><span class="add-on">MHz</span>
-		</span>	
-		- 
-		<span class="input-append">
-			<%= text_field_tag :range_high, nil, id: "spectrum-high" %><span class="add-on">MHz</span>
-		</span>
-		<div id="spectrum-range"></div>
+		<div id="spectrum-fields" data-amount=1>
+			<%= render 'shared/spectrum_range_slider', num: '1' %>
+		</div>
+		<button class="btn" type="button" id="add-range">Add Another Range</button>
 	</div>
 	<div class="actions">
-   <%= submit_tag "Submit", class: "btn btn-primary" %>
+   <%= submit_tag "Submit", class: "btn x-large btn-primary" %>
   </div>
 <% end %>
